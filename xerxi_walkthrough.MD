@@ -2,4 +2,4 @@ This walkthrough will cover how to hack into the challenge and not how to set it
 
 # Docker tutorial
 
-The Challenge's ip is under ip a command 'eth0'.
+The Challenge's ip is under ¸¸ip a¸¸ command 'eth0'.
