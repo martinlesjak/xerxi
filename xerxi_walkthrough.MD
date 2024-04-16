@@ -34,3 +34,11 @@ Coming soon.
 
 4.1. Through looking in the directories, we find something of value in `/test`, named log1.php.
    ![log1find](https://github.com/martinlesjak/xerxi/blob/images/log1find.png)
+
+5. Opening `http://your_eth0/test/log1.php`, we find something interesting.
+   ![log1php](https://github.com/martinlesjak/xerxi/blob/images/log1find.png)
+5.1 Acquiring username and password hash as the terminal loads, we set to crack the password. The password is hashed by MD5.
+   ![log1find](https://github.com/martinlesjak/xerxi/blob/images/log1find.png)
+
+6. We crack the password using a website, since johntheripper doesn't yield any results. The website: `https://www.md5online.org/md5-decrypt.html` cracks the password, throwing `ilikecats` back.
+   ![ilikecats](https://github.com/martinlesjak/xerxi/blob/images/log1find.png)
