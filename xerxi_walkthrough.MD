@@ -36,7 +36,7 @@ Coming soon.
    ![log1find](https://github.com/martinlesjak/xerxi/blob/images/log1find.png)
 
 5. Opening `http://your_eth0/test/log1.php`, we find something interesting.
-   ![log1php](https://github.com/martinlesjak/xerxi/blob/images/log1find.png)
+   ![log1php](https://github.com/martinlesjak/xerxi/blob/images/log1php.png)
 5.1 Acquiring username and password hash as the terminal loads, we set to crack the password. The password is hashed by MD5.
    ![hackerhint](https://github.com/martinlesjak/xerxi/blob/images/hackerhint.png)
 
