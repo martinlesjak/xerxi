@@ -38,17 +38,17 @@ Coming soon.
 
 ### GOBUSTER
 
-4. Using Gobuster, we can find some interesting directories. Mainsite and dashboard don't promise anything of importance, since the test and wip look more promising.
+4. Using Gobuster, we can find some interesting directories. Mainsite and dashboard don't promise anything of importance, since the test and wip look more promising. We will use dirbuster wordlists. You can find them under `/usr/share/wordlists/dirbuster/` directory.
 
    ![Gobuster](https://github.com/martinlesjak/xerxi/blob/images/gobuster.png)
 
-4.1. Through looking in the directories, we find something of value in `/test`, named log1.php. We will use dirbuster wordlists. You can find them under `/usr/share/wordlists/dirbuster/` directory.
+4.1. Through looking in the directories, we find something of value in `/test`, named log1.php. Using `-x`, we look for .php files. We are using amass wordlist in directory `/usr/share/wordlists/amass/all.txt`.
 
    ![Log1 Find](https://github.com/martinlesjak/xerxi/blob/images/log1find.png)
 
 ### HIDDEN FILE
 
-5. Opening `http://your_eth0/test/log1.php`, we find something interesting. Using `-x`, we look for .php files. We are using amass wordlist in directory `/usr/share/wordlists/amass/all.txt`.
+5. Opening `http://your_eth0/test/log1.php`, we find something interesting. 
 
    ![log1php](https://github.com/martinlesjak/xerxi/blob/images/log1php.png)
 
