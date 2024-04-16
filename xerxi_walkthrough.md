@@ -42,13 +42,13 @@ Coming soon.
 
    ![Gobuster](https://github.com/martinlesjak/xerxi/blob/images/gobuster.png)
 
-4.1. Through looking in the directories, we find something of value in `/test`, named log1.php.
+4.1. Through looking in the directories, we find something of value in `/test`, named log1.php. We will use dirbuster wordlists. You can find them under `/usr/share/wordlists/dirbuster/` directory.
 
    ![Log1 Find](https://github.com/martinlesjak/xerxi/blob/images/log1find.png)
 
 ### HIDDEN FILE
 
-5. Opening `http://your_eth0/test/log1.php`, we find something interesting.
+5. Opening `http://your_eth0/test/log1.php`, we find something interesting. Using `-x`, we look for .php files. We are using amass wordlist in directory `/usr/share/wordlists/amass/all.txt`.
 
    ![log1php](https://github.com/martinlesjak/xerxi/blob/images/log1php.png)
 
