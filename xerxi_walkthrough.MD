@@ -42,3 +42,36 @@ Coming soon.
 
 6. We crack the password using a website, since johntheripper doesn't yield any results. The website: `https://www.md5online.org/md5-decrypt.html` cracks the password, throwing `ilikecats` back.
    ![ilikecats](https://github.com/martinlesjak/xerxi/blob/images/log1find.png)
+
+6.1 Trying the password on login page on `eth0:80`, the user doesn't exist. But here's another page, using port 8080, which is used for websites aswell. We find something interesting.
+   ![webapp](https://github.com/martinlesjak/xerxi/blob/images/log1find.png)
+
+7. We try to login through the page on port 8080 with credentials acquired. 
+7.1 As we can see, the login with user:`PVT` and password:`ilikecats` is successful.
+   ![loginsuccess](https://github.com/martinlesjak/xerxi/blob/images/log1find.png)
+7.2 A dashboard open's infront of us. It has few interactable items such as taskbar, Divison, Settings and Logout.
+   ![dashboard](https://github.com/martinlesjak/xerxi/blob/images/log1find.png)
+7.3 Upon inspecting settings, we find something interesting.
+   ![settings](https://github.com/martinlesjak/xerxi/blob/images/log1find.png)
+7.4 The settings panel has user, which is autocompleted by current logged user and it prompts us to write in current password and new password. Testing it, we come to a hypothesis - maybe the session saved a variable username and password aswell - it would be extremely insecure, thats for sure, but let's try. The highest privilege is GEN username. The sql sentence might look something like this: `sql="UPDATE users SET password = $password WHERE user=$user"`
+   ![settingssol](https://github.com/martinlesjak/xerxi/blob/images/log1find.png)
+
+8. Changing the password, we try to login as GEN. It works, and we are presented with a more advanced looking dashboard.
+   ![advanceddashboard](https://github.com/martinlesjak/xerxi/blob/images/log1find.png)
+8.1 After inspecting everything, Logs has an interesting entry. Two, actually. The Logs section seems to write all the changes in the system, with last being Log 7 - mysql database password update "quack". Log 6 tells us SRG is superadmin, which tells us something is not right. Second port was port 3306, which is often used for mysql.
+   ![logs](https://github.com/martinlesjak/xerxi/blob/images/log1find.png)
+8.2 We can try login as SRG - using same method as GEN. But unfortunately, access is denied.
+   ![accessdenied](https://github.com/martinlesjak/xerxi/blob/images/log1find.png)
+
+9. One option is to look for password in database. We got the password - it's `quack`. We login via this command line - `mysql -h <eth0 ip> -u root -p`. It's a success!
+   ![mysqllogin](https://github.com/martinlesjak/xerxi/blob/images/log1find.png)
+9.1 We can navigate mysql using commands displayed on this photo.
+   ![navigation](https://github.com/martinlesjak/xerxi/blob/images/log1find.png)
+9.2 We found the password!
+   ![srgpassword](https://github.com/martinlesjak/xerxi/blob/images/log1find.png)
+
+10. Using MD5 tool, we decrypt SRG's password.
+
+11. When logging into SRG's profile, we can find flag under `Personal Notes`.
+
+We've won! Congrats. :)
