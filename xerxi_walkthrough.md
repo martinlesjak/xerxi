@@ -2,9 +2,23 @@
 
 This walkthrough will cover how to hack into the challenge and not how to set it up. I'll release the file covering how to set up Docker to start the challenge. The **Challenge's IP** is under the `ip a` command 'eth0'.
 
-# Docker Tutorial
+# Docker Tutorial - Kali Linux Terminal
 
-Coming soon.
+In Terminal, you'll need to install Docker if not already installed.
+### Install Dependencies
+`sudo apt install apt-transport-https ca-certificates curl software-properties-common -y`
+### Add Docker Repository
+`curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -`
+`sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"`
+### Install Docker Engine
+`sudo apt update && sudo apt install docker-ce -y`
+
+### Using Docker
+You'll need to be in a folder with .yml file to start it (inside the unzipped challenge directory) and run this command:
+`docker-compose up -d`
+If everything goes right, it should write `done` for all services launched.
+
+This is it, to the walkthrough!
 
 # Challenge Walkthrough
 
